@@ -1,8 +1,8 @@
 spring:
   datasource:
     password: ivoyant@123
-    url: jdbc:mysql://gitaction.mysql.database.azure.com:3306/movie
-    username: sagar
+    url: jdbc:mysql://mysqlgit.mysql.database.azure.com:3306/movie1
+    username: adarsh
 
 
 #JPA Settings
