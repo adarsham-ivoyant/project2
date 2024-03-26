@@ -1,6 +1,12 @@
-FROM openjdk:17
-
+FROM maven:3.9.6-eclipse-temurin-17 AS build
 WORKDIR /app
-COPY target/Film-0.0.1-SNAPSHOT.jar /app/Film.jar
+COPY pom.xml .
+RUN mvn dependency:go-offline -B
+COPY src ./src
+RUN mvn package -DskipTests
 
-ENTRYPOINT ["java", "-jar", "Film.jar"]
+FROM amd64/amazoncorretto:17
+WORKDIR /app
+EXPOSE 8080
+COPY --from=build /app/target/*.jar UpiUseCase.jar
+ENTRYPOINT ["java","-jar","UpiUseCase.jar"]
