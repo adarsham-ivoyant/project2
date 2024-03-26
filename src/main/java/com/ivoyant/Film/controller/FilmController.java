@@ -48,5 +48,10 @@ public class FilmController {
         return filmService.getFilmByName(film_name);
     }
 
+       @GetMapping("/deploy")
+    public String deploy() {
+        return "Hello world";
+    }
+
 
 }
