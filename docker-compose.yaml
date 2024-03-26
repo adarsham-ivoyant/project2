@@ -1,0 +1,21 @@
+version: "3.0"
+services:
+  app:
+    image: film:latest
+    ports:
+      - 9090:8080
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/movie
+      SPRING_DATASOURCE_USERNAME: admin
+      SPRING_DATASOURCE_PASSWORD: root
+    depends_on:
+      - db
+  db:
+    image: mysql:latest
+    environment:
+      DATABASE_HOST: docker-mysql
+      DATABASE_PORT: 3306
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: movie
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: root

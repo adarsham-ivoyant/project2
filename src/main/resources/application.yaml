@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    password: ivoyant@123
+    url: jdbc:mysql://gitaction.mysql.database.azure.com:3306/movie
+    username: sagar
+
+
+#JPA Settings
+
+  jpa:
+    hibernate:
+      ddl-auto=update:
